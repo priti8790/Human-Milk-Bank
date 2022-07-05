@@ -1,0 +1,142 @@
+{% load static %}
+{{ '<' }}{{ '!DOCTYPE html>' }}
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        Human Milk Bank
+    </title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <script src="{% static 'js/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'Datepicker/datepicker3.css' %}">
+    <script src="{% static 'Datepicker/bootstrap-datepicker.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'DataTables/datatables.min.css' %}"/>
+    <script type="text/javascript" src="{% static 'DataTables/datatables.min.js' %}"></script>
+</head>
+<body>
+    <div id="mainContainer">
+
+		<!-- Add Header file -->
+		{% include "header.html" %}
+		<!-- Add Side Menu bar -->
+		{% include "sidebar.html" %}
+
+
+		<!-- Main Contents Start-->
+		<div class="container" style="width: 100%; margin: 0; float: left;">
+
+			<div id="loginForm" style="margin-bottom: 100px;">
+
+	<div id="page-wrapper">
+		<div id="page-inner">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="titleeffect">Change Password</h2>
+					<!-- <h5>Welcome Jhon Deo , Love to see you back. </h5> -->
+
+				</div>
+			</div>
+			<!-- /. ROW  -->
+			<hr />
+
+
+			<div class="row" >
+
+				<div class="col-md-3"></div>
+
+				<div class="col-md-6 well" style="box-shadow: 10px 10px grey">
+					<!-- Form Elements -->
+					<div class="panel panel-default">
+
+					 <h4 class="text-center" style="color: red;"></h4>
+
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-12">
+
+									<form role="form" action="#" method="post">
+										<div class="form-group" style="box-shadow: 5px 5px grey">
+											<!-- <h3>User Name</h3> -->
+											<input type="hidden" class="form-control" name="userId" value="1" required />
+											<input class="form-control" name="newUsername"  placeholder="Username" required />
+										</div>
+										<div class="form-group" style="box-shadow: 5px 5px grey">
+											<!-- <h3>New Password</h3> -->
+											<input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="New Password" onkeyup='check();' required />
+										</div>
+
+										<div class="form-group" style="box-shadow: 5px 5px grey">
+											<!-- <h3>Confirm Password</h3> -->
+											<input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" onkeyup='check();' required />
+
+
+										<span id='msg'></span>
+
+										</div>
+
+										<br>
+										<div class="form-group text-center">
+											<button type="submit" id="changeBtn" class="btn btn-success" style="box-shadow: 5px 5px grey">Save</button>
+											&emsp;
+											<button type="reset" class="btn btn-info" style="box-shadow: 5px 5px grey">Clear</button>
+										</div>
+
+
+									</form>
+
+								</div>
+							</div>
+							<!-- /. ROW  -->
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="col-md-3"></div>
+
+			</div>
+
+
+		</div>
+		<!-- /. PAGE INNER CLASS END -->
+
+	</div>
+	<!-- /. PAGE WRAPPER CLASS END -->
+
+	</div>
+
+	<script type="text/javascript">
+
+	var check = function() {
+
+		  if (document.getElementById('newPassword').value ==
+		    document.getElementById('confirmPassword').value)
+		  {
+			  document.getElementById("changeBtn").disabled = false;
+		    document.getElementById('msg').style.color = 'green';
+		    document.getElementById('msg').innerHTML = 'Password Matching!';
+		  }
+		  else {
+
+			  document.getElementById("changeBtn").disabled = true;
+
+		    document.getElementById('msg').style.color = 'red';
+		    document.getElementById('msg').innerHTML = 'Password Not Matching!';
+		  }
+		}
+
+	</script>
+
+		</div>
+		<!-- Main Contents End-->
+	</div>
+</body>
+</html>

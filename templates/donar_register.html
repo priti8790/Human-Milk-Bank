@@ -1,0 +1,237 @@
+{% load static %}
+{{ '<' }}{{ '!DOCTYPE html>' }}
+<html>
+<head>    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        Human Milk Bank
+    </title>
+
+     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <script src="{% static 'js/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'Datepicker/datepicker3.css' %}">
+    <script src="{% static 'Datepicker/bootstrap-datepicker.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'DataTables/datatables.min.css' %}"/>
+    <script type="text/javascript" src="{% static 'DataTables/datatables.min.js' %}"></script>
+
+</head>
+<body>
+    <div id="mainContainer">
+		
+		<!-- Add Header file -->
+		{% include "header.html" %}
+		<!-- Add Side Menu bar -->
+		{% include "sidebar.html" %}
+		
+		<!-- Main Contents Start-->
+		<div class="container" style="width: 100%; margin: 0; float: left;">	
+				<div id="page-wrapper">
+					<div id="page-inner">
+						<div class="row">
+							<div class="col-md-12">
+								<h2 class="titleeffect">Donor Registration</h2>
+
+							</div>
+						</div>						
+						<hr>		
+			
+						<div class="row">		
+							<div class="col-md-12">
+								<!-- Form Elements -->
+								<div class="panel panel-default">
+									<div class="panel-heading">Donor Information</div>
+									<div class="panel-body">											
+										<form role="form" action="#"  method="post">
+											<div class="row">
+												<div class="col-md-1"></div>
+												<div class="col-md-5">
+													<div class="form-group">
+														<label>Expression Date</label>
+														<input type="text" class="form-control" name="edate" value="{% now 'SHORT_DATE_FORMAT' %}" readonly>
+													</div>
+												</div>
+												<div class="col-md-5">
+												<div class="form-group">
+														<label>Hospital</label>
+														<input type="text" class="form-control" name="hname" value="">
+													</div></div>
+												<div class="col-md-1"></div>												
+											</div>
+											<hr>
+											<div class="row">
+												<div class="col-md-1"></div>
+												<div class="col-md-5">													
+														<div class="form-group">
+															<label>Contact Number</label>
+															<input type="text" class="form-control" id="contact" name="contact" placeholder="Enter Contact Number" onkeypress="return isNumber(event)" maxlength="10" required>
+														</div>																																						
+												</div>
+												<div class="col-md-5">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>Batch number</label>
+														<input type="text" class="form-control" id="batch" name="batch" value="100" required readonly>
+														</div>
+													</div>
+													<div class="col-md-6">
+													<label style="color:white">a</label>
+														<a id="changebatch" class="btn btn-info form-control">Change Batch</a>
+													</div>																								
+												</div>
+												<div class="col-md-1"></div>	
+											</div>
+											<hr>
+											<div class="row">
+												<div class="col-md-1"></div>
+												<div class="col-md-3">
+													<div class="form-group">
+														<label>Mother Name</label>
+														<input type="text" class="form-control" name="mname" placeholder="Mother Name" required>															
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="form-group">
+														<label>Father/Husband Name</label>
+														<input type="text" class="form-control" name="fhname" placeholder="Father or Husband Name" required>															
+													</div>
+												</div>
+												<div class="col-md-3">
+													<div class="form-group">
+															<label>Surname</label>
+															<input type="text" class="form-control" name="surname" placeholder="Surname" required>															
+													</div>
+												</div>
+												<div class="col-md-1"></div>
+											</div>
+											<div class="row">
+												<div class="col-md-1"></div>
+												<div class="col-md-5">
+													<div class="form-group">
+														<label>Date of Birth</label>
+														<input type="date" class="form-control" name="dob" placeholder="Date of Birth" required>															
+													</div>
+												</div>
+												<div class="col-md-5">
+													<div class="form-group">
+														<label>Recipient Type</label>
+														<select class="form-control" name="rtype" required="required" readonly>
+													        <option selected value="1" >Recipient Mother</option>
+													      </select>
+													</div>
+												</div>
+												<div class="col-md-1"></div>
+											</div>
+											<div class="row">
+												<div class="col-md-1"></div>
+												<div class="col-md-3">
+													<div class="form-group">
+														<label>HIV Status</label>
+														<select class="form-control" name="hiv" required="required">
+													        <option value="" selected>Select Option</option>
+													        <option value="0">Negative (-ve)</option>
+													        <option value="1" >Positive (+ve)</option>
+													      </select>
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="form-group">
+														<label>VDRL Status</label>
+														<select class="form-control" name="vdrl" required="required">
+													        <option value="" selected>Select Option</option>
+													        <option value="0">Negative (-ve)</option>
+													        <option value="1" >Positive (+ve)</option>
+													      </select>
+													</div>
+												</div>
+												<div class="col-md-3">
+													<div class="form-group">
+														<label>HBSAG Status</label>
+														<select class="form-control" name="hbsag" required="required">
+													        <option value="" selected>Select Option</option>
+													        <option value="0">Negative (-ve)</option>
+													        <option value="1" >Positive (+ve)</option>
+													      </select>
+													</div>
+												</div>
+												<div class="col-md-1"></div>
+											</div>
+											<hr>
+											<div class="row">
+												<div class="col-md-1"></div>
+												<div class="col-md-5">
+													<div class="form-group">
+														<label>Milk Amount (in ml)</label>
+														<input type="text" class="form-control" name="milk" placeholder="Milk Amount in ML" onkeypress="return isNumber(event)" required>															
+													</div>
+												</div>
+												<div class="col-md-5">
+													<label>QR Code</label>
+													<div class="col-md-12">
+														<div class="col-md-6">
+															<div class="form-group">
+																
+																<input type="text" class="form-control" name="qrcode" value="" required >
+															</div>
+														</div>
+														<div class="col-md-6"><a href="printQRCode" class="btn btn-info" target="_BLANK">Print QR Code</a></div>
+													</div>
+													
+												</div>
+												<div class="col-md-1"></div>
+											</div>
+											<div class="row text-center">
+												<div class="form-group">
+													<button type="submit" name="submit" class="btn btn-lg btn-success">Save Donor</button>
+												</div>												
+											</div>
+			
+										</form>
+										
+										<br>
+										<span style="display: none; color: red;" id="contactNoValidate">Invalid contact number; must be 10 digits</span>
+											
+										
+									</div>
+			
+								</div>
+			
+							</div>
+			
+						</div>
+					</div>
+					<!-- jumbotron class end -->			
+			
+				</div>
+				<!-- /. PAGE INNER CLASS END -->
+			
+				</div>
+				<!-- /. PAGE WRAPPER CLASS END -->
+		</div>
+		<!-- Main Contents End-->		
+		
+		<script>		
+			$(document).on("click", "#changebatch", function () {
+			     var batch = document.getElementById("batch").value;
+			     batch++;
+			     $("#batch").val(batch);			     
+			});
+		</script>
+		
+		<script>
+			function isNumber(evt) {
+			    evt = (evt) ? evt : window.event;
+			    var charCode = (evt.which) ? evt.which : evt.keyCode;
+			    if (charCode < 48 || charCode > 57) {
+			        return false;
+			    }
+			    return true;
+			}
+		</script>
+</body>
+</html>

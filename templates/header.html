@@ -1,0 +1,70 @@
+		<style>
+			.hname {
+
+			    transform: translate(50%,-50%);
+			    text-transform: uppercase;
+			    font-family: verdana;
+			    font-size: 1em;
+			    font-weight: 700;
+			    color: #f5f5f5;
+			    text-shadow: 1px 1px 1px #919191,
+			        1px 2px 1px #919191,
+			        1px 3px 1px #919191,
+			        1px 4px 1px #919191,
+			    1px 18px 6px rgba(16,16,16,0.4),
+			    1px 22px 10px rgba(16,16,16,0.2),
+			    1px 25px 35px rgba(16,16,16,0.2),
+			    1px 30px 60px rgba(16,16,16,0.4);
+			}
+
+			.search-container button {
+				  float: right;
+				  width:50px;
+				  padding: 6px 10px;
+				  margin-right: 16px;
+				  background: #ddd;
+				  font-size: 17px;
+				  border: none;
+				  cursor: pointer;
+				}
+
+				.search-container button:hover {
+				  background: gold;
+				}
+		</style>
+		<div style="width: 100%; margin: 0 0 -50px 0; float: left">
+			<div style="width: 100%; margin: 0 0 -50px 0; float: left;">
+            	<div id="wrapper">
+					<nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 20px">
+			        	<div class="navbar-header">
+			                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+				                 <span class="sr-only">Toggle navigation</span>
+				                 <span class="icon-bar"></span> <span class="icon-bar"></span>
+				                 <span class="icon-bar"></span>
+			                 </button>
+			                 <a class="navbar-brand" href="home" style="background:white"></a>
+			            </div>
+			            <div style="color: white; padding: 15px 50px 5px 50px; float: left;">
+			            	<span class="hname"><!-- HHH Hospital --></span>
+			            </div>
+			            <div class="search-container" style="padding: 15px 50px 5px 50px; float: left; font-size: 16px;">
+			            	<form action="#" method="post">
+							      <input type="text" placeholder="Enter QR Code" name="search" style="padding:6px 10px">
+							      <button type="submit"><i class="fa fa-search"></i></button>
+							</form>
+			            </div>
+
+			            <div class="search-container" style="padding: 15px 00px 5px 0px; float: left; font-size: 16px;">
+			            	<form action="#" method="post">
+							      <input type="text" placeholder="Enter Royalty Card Number" name="search" style="padding:6px 10px">
+							      <button type="submit"><i class="fa fa-search"></i></button>
+							</form>
+			            </div>
+
+			            <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
+			            	<a href="/" class="btn btn-danger square-btn-adjust">Logout</a>
+			            </div>
+					</nav>
+			    </div>
+			</div>
+		</div>

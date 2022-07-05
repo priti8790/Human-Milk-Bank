@@ -1,0 +1,132 @@
+{% load static %}
+{{ '<' }}{{ '!DOCTYPE html>' }}
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        Human Milk Bank
+    </title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <script src="{% static 'js/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'Datepicker/datepicker3.css' %}">
+    <script src="{% static 'Datepicker/bootstrap-datepicker.js' %}"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'DataTables/datatables.min.css' %}"/>
+    <script type="text/javascript" src="{% static 'DataTables/datatables.min.js' %}"></script>
+</head>
+<body>
+    <div id="mainContainer">
+
+		<!-- Add Header file -->
+		{% include "header.html" %}
+		<!-- Add Side Menu bar -->
+		{% include "sidebar.html" %}
+<!-- Main Contents Start-->
+		<div class="container" style="width: 100%; margin: 0; float: left;">
+			<div id="page-wrapper" style="">
+				<div id="page-inner">
+					<div class="row">
+						<div class="col-md-12">
+							<h2 class="titleeffect">Dispense Form</h2>
+						</div>
+						<div class="col-md-12 text-center">
+							<h4 style="color:red"> </h4>
+							<h4 style="color:green"> </h4>
+						</div>
+					</div>
+
+					<div class="row">
+						<form method="post" action="dispence-form-bean">
+							<div class="col-md-1"></div>
+								<div class="col-md-5">
+									<div class="form-group">
+										<label>Dispense Date</label>
+										<input type="text" class="form-control" name="cdate" value="" readonly>
+									</div>
+									<div class="form-group">
+										<label>Infant Name</label>
+										<input type="text" name="infant" class="form-control" placeholder="Enter Infant Name" required>
+									</div>
+									<div class="form-group">
+										<label>Tag Number(If Available)</label>
+										<input type="text" class="form-control" name="tag" placeholder="Enter Tag Number">
+									</div>
+									<div class="form-group">
+										<label>QR Code</label>
+										<input type="text" class="form-control" name="qr" id="qr" placeholder="Scan Qr Code">
+									</div>
+									<div class="form-group">
+										<label>Total Milk (in ml.)</label>
+										<input type="text" class="form-control" name="milk" id="milk" placeholder="100" readonly>
+									</div>
+								</div>
+								<div class="col-md-5">
+									<div class="form-group">
+										<label>Type of Dispense</label>
+										<select class="form-control" name="dtype" id="dtype" required="required">
+											<option selected>Select The Dispense Type</option>
+											<option value="0">Own Mother</option>
+											<option value="1" >NICU</option>
+											<option value="2">SNCV</option>
+											<option value="3" >Other Hospital</option>
+											<option value="4" >Royalty </option>
+										</select>
+									</div>
+									<div class="form-group" id="rcard" style="display:none">
+										<label>Royalty Card Number</label>
+										<input type="text" class="form-control" name="royalty" placeholder="Enter Royalty Card Number">
+									</div>
+									<div class="form-group">
+										<label>Recipient Name</label>
+										<input type="text" class="form-control" name="rname" placeholder="Enter Recipent Name">
+									</div>
+									<div class="form-group">
+										<label>Remarks</label>
+										<textarea name="remark" class="form-control" placeholder="Remarks" rows="4"></textarea>
+									</div>
+								</div>
+								<div class="col-md-1"></div>
+								<div class="col-md-12 text-center">
+									<div class="form-group">
+										<button type="submit" name="submit" class="btn btn-success">Dispense</button>
+									</div>
+								</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Main Contents End-->
+	</div>
+
+	<script>
+	$(function(){
+		  $('#qr').on('change', function(){
+		  	var val = $(this).val();
+
+		  })
+		  })
+	</script>
+
+	<script>
+		$(document).ready(function(){
+		    $('#dtype').on('change', function() {
+		      if ( this.value == '4')
+		      {
+		        $("#rcard").show();
+		      }
+		      else
+		      {
+		        $("#rcard").hide();
+		      }
+		    });
+		});
+	</script>
+</body>
+</html>
